@@ -1,6 +1,7 @@
 bin
 .claude
 CLAUDE.md
+*.swp
 include
 lib
 lib64

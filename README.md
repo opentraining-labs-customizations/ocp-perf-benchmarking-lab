@@ -1,6 +1,6 @@
 # OPEN-54 - OpenShift Performance Benchmarking lab
 
-Ansible automation for deploying Elasticsearch on OpenShift for the [OpenShift Performance Benchmarking](https://redhatquickcourses.github.io/ocp-perf-benchmarking/ocp-perf-benchmarking/1/index.html) training.
+Ansible role for deploying Elasticsearch on OpenShift for the [OpenShift Performance Benchmarking](https://redhatquickcourses.github.io/ocp-perf-benchmarking/ocp-perf-benchmarking/1/index.html) training.
 
 ## Setup
 
@@ -16,15 +16,27 @@ Ansible automation for deploying Elasticsearch on OpenShift for the [OpenShift P
 
 ## Usage
 
-Deploy Elasticsearch cluster:
+Deploy Elasticsearch cluster using the role:
 ```bash
-ansible-playbook admin-configure-environment.yaml
+ansible-playbook deploy.yml
 ```
 
 This will:
 - Install the Elasticsearch ECK operator
 - Deploy a single-node Elasticsearch 8.15.0 cluster
 - Configure 2Gi memory allocation with emptyDir storage
+
+## Role Configuration
+
+The role can be customized by overriding variables in `defaults/main.yml`:
+
+- `elasticsearch_operator_namespace`: Namespace for the ECK operator (default: `openshift-operators`)
+- `elasticsearch_namespace`: Namespace for Elasticsearch instance (default: `openshift-logging`)
+- `elasticsearch_instance_name`: Name of the Elasticsearch cluster (default: `elasticsearch`)
+- `elasticsearch_version`: Elasticsearch version to deploy (default: `8.15.0`)
+- `elasticsearch_node_count`: Number of Elasticsearch nodes (default: `1`)
+- `elasticsearch_memory_request/limit`: Memory allocation (default: `2Gi`)
+- `elasticsearch_cpu_request/limit`: CPU allocation (default: `1`/`2`)
 
 ## Testing Connectivity
 
