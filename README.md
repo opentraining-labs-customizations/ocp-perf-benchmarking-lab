@@ -1,6 +1,6 @@
 # OPEN-54 - OpenShift Performance Benchmarking lab
 
-Ansible automation for deploying Elasticsearch on OpenShift for performance testing.
+Ansible automation for deploying Elasticsearch on OpenShift for the [OpenShift Performance Benchmarking](https://redhatquickcourses.github.io/ocp-perf-benchmarking/ocp-perf-benchmarking/1/index.html) training.
 
 ## Setup
 
